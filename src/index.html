@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comida de Mãe - Cardápio</title>
+    <link rel="icon" type="image/png" href="./assets/Comida de Mae - LOGO FUNDO BRANCO PNG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-sans" style="background-color: #f8f8f8">
+    <header class="shadow py-4" style="background-color: #7d0a0a; color: #fff">
+        <div
+            class="container mx-auto flex justify-between items-center flex-col md:flex-row gap-2 md:gap-0"
+        >
+            <div
+                class="container mx-auto flex justify-between items-center flex-col md:flex-row gap-2 md:gap-0"
+            >
+                <div class="logo mb-2 md:mb-0 md:mr-12">
+                    <a href="index.html"
+                        ><img
+                            src="assets/logo-comida-de-mae.png"
+                            alt="Logo Comida de Mãe"
+                            class="w-16 h-auto"
+                        /></a>
+                </div>
+            </div>
+            <div
+                class="contact-info flex flex-col md:flex-row gap-2 md:gap-4 items-center text-center md:text-left"
+            >
+                <div class="flex items-center gap-2 md:mr-8">
+                    <a
+                        href="https://wa.me/5531995822479"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2"
+                    >
+                        <img
+                            src="assets/whatsapp.png"
+                            alt="WhatsApp"
+                            class="w-5 h-5 "
+                        />
+                        <span class="text-sm hover:text-[#EFB036]">WhatsApp</span>
+                    </a>
+                </div>
+    
+                <div class="flex items-center gap-2 md:mr-8">
+                    <a
+                        href="https://www.google.com/maps/place/Rua+Antonio+Isidoro+Moreira,+391,+Contagem+-+MG,+32110-070/@-19.937777,-44.008888,17z"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2"
+                    >
+                        <img
+                            src="assets/location.png"
+                            alt="Endereço"
+                            class="w-5 h-5"
+                        />
+                        <p class="text-xs md:text-sm hover:text-[#EFB036]">Rua Antonio Isidoro Moreira, 391</p>
+                    </a>
+                </div>
+    
+                <a href="carrinho.html" class="relative ml-4 md:ml-auto transition transform duration-200 ease-in-out">
+                    <img
+                        src="assets/shopping-bag.png"
+                        alt="Carrinho de Compras"
+                        class="w-12 h-8 hover:rotate-6"
+                    />
+                    <span
+                        id="cart-item-count-header"
+                        class="absolute -top-1 -right-1 bg-[#EFB036] text-white rounded-full text-xs px-1 font-bold"
+                        >0</span
+                    >
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto pb-20 mt-8 p-4 bg-white rounded shadow">
+      <h2 class="text-2xl font-semibold mb-4">Nosso Cardápio</h2>
+      <div
+        id="menu-items"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      ></div>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Bebidas</h2>
+      <div
+        id="bebidas-items"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      ></div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="carrinho.html"
+          class="text-white font-bold mb-4 py-2 px-4 rounded bg-[#03A791] hover:bg-[#0a8d7c]"
+        >
+          Ver Carrinho (<span id="cart-item-count">0</span>)
+        </a>
+      </div>
+    </main>
+
+
+
+    <div
+      id="product-modal"
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div
+        class="relative bg-white rounded-md max-w-md mx-auto p-6 top-1/2 -translate-y-1/2"
+        style="
+          box-shadow: 0 4px 6px -55px rgba(0, 0, 0, 0.1),
+            0 2px 4px -55px rgba(0, 0, 0, 0.06), 2px 2px 5px 0px #474747;
+        "
+      >
+        <button
+          id="close-modal"
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <img id="modal-image" src="" alt="" class="w-full rounded-md mb-4" />
+        <h3
+          id="modal-title"
+          class="text-xl font-semibold mb-2"
+          style="color: #7d0a0a"
+        ></h3>
+        <p id="modal-description" class="text-gray-700 mb-3"></p>
+        <p id="modal-price" class="text-green-500 font-bold mb-4">R$ 0.00</p>
+        <div class="flex items-center mt-2">
+          <button
+            id="modal-decrease-quantity"
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l"
+          >
+            -
+          </button>
+          <span id="modal-quantity" class="mx-2">1</span>
+          <button
+            id="modal-increase-quantity"
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-r"
+          >
+            +
+          </button>
+          <button
+            id="modal-add-to-cart"
+            class="bg-[#03A791] hover:bg-[#0a8d7c] text-white font-bold py-2 px-4 rounded ml-auto"
+            style="color: #fff"
+          >
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      id="footer-logo-pattern"
+      class="bg-[#7d0a0a] text-white py-4 text-center fixed bottom-0 left-0 w-full z-10 hidden"
+    >
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[url('./assets/logo-pattern.png')] bg-repeat-x bg-bottom bg-[size:200px_auto] opacity-100"
+      ></div>
+      <p class="relative z-20">&copy;</p>
+    </footer>
+    <script>
+      const footer = document.getElementById("footer-logo-pattern");
+
+      function checkScroll() {
+        const totalHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        if (window.scrollY >= totalHeight - 50) {
+          footer.classList.remove("hidden");
+        } else {
+          footer.classList.add("hidden");
+        }
+      }
+
+      window.addEventListener("scroll", checkScroll);
+      checkScroll();
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

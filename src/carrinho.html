@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="icon" type="image/png" href="./assets/Comida de Mae - LOGO FUNDO BRANCO PNG.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header style="background: #7D0A0A" class="shadow py-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Seu Carrinho</h1>
+            <a href="index.html" class="hover:text-[#EFB036] hover:underline">Voltar ao Cardápio</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4 bg-white rounded shadow pb-16">
+        <div id="cart-items">
+            </div>
+        <p id="cart-total" class="font-semibold mt-4">Total: R$ 0.00</p>
+
+        <h3 class="text-lg font-semibold mt-6 mb-2">Informações de Entrega</h3>
+        <div class="grid grid-cols-1 gap-2">
+            <input type="text" id="customer-name" placeholder="Seu Nome" class="border p-2 rounded">
+            <input type="text" id="customer-address" placeholder="Seu Endereço" class="border p-2 rounded">
+            <input type="tel" id="customer-phone" placeholder="Seu Telefone (com DDD)" class="border p-2 rounded">
+        </div>
+
+        <button id="checkout-button" class="bg-[#03A791] hover:bg-[#0a8d7c] text-white font-bold py-2 px-4 rounded mt-4">
+            Finalizar Pedido e Enviar para WhatsApp
+        </button>
+    </main>
+
+    <footer id="footer-logo-pattern" class="bg-[#7d0a0a] text-white py-4 text-center fixed bottom-0 left-0 w-full z-10 hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('./assets/logo-pattern.png')] bg-repeat-x bg-bottom bg-[size:200px_auto] opacity-100"></div>
+        <p class="relative z-20">&copy;</p>
+    </footer>
+        <script>
+            const footer = document.getElementById('footer-logo-pattern');
+        
+            function checkScroll() {
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                if (window.scrollY >= totalHeight - 50) {
+                    footer.classList.remove('hidden');
+                } else {
+                    footer.classList.add('hidden');
+                }
+            }
+        
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+        </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
