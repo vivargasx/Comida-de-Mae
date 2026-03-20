@@ -24,6 +24,7 @@ Persistência & Ferramentas
 
 
 🎨 Branding & Identidade Visual
+
 Diferente de muitos projetos de programação, o Comida de Mãe foi concebido como uma marca completa. Como Designer, desenvolvi:
 
 Criação de Logotipo: Desenvolvida para transmitir acolhimento e tradição familiar.
